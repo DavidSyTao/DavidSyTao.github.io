@@ -1,0 +1,224 @@
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #24292f;
+  background: #fff;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+a { color: inherit; }
+
+/* ===== Sidebar / author profile ===== */
+.sidebar {
+  position: sticky;
+  top: 2.5rem;
+  text-align: center;
+}
+
+.sidebar__avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #dde3ea;
+  margin-bottom: 0.75rem;
+}
+
+.sidebar__name {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+}
+
+.sidebar__bio {
+  margin: 0 0 0.6rem;
+  color: #57606a;
+  font-size: 0.9rem;
+}
+
+.sidebar__meta {
+  margin: 0 0 0.2rem;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.sidebar__links {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.sidebar__links a {
+  color: #2a4f93;
+  text-decoration: none;
+}
+
+.sidebar__links a:hover { text-decoration: underline; }
+
+.sidebar__wechat {
+  display: none;
+  margin-top: 0.75rem;
+}
+
+.sidebar__wechat.is-open { display: block; }
+
+.sidebar__wechat img {
+  width: 150px;
+  max-width: 100%;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+}
+
+/* ===== Section ===== */
+.section-title {
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #eaeef2;
+}
+
+/* ===== Cards ===== */
+.cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid #dde3ea;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.76rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  background: #eef2f7;
+  margin-bottom: 0.45rem;
+}
+
+.card__title {
+  margin: 0 0 0.4rem;
+  font-size: 1.04rem;
+}
+
+.card__authors {
+  margin: 0 0 0.55rem;
+  font-size: 0.92rem;
+}
+
+.card__points {
+  margin: 0 0 0.6rem 1rem;
+  padding: 0;
+  font-size: 0.92rem;
+}
+
+.card__desc {
+  margin: 0 0 0.6rem;
+  font-size: 0.92rem;
+  color: #444c56;
+  line-height: 1.6;
+}
+
+.card__stack {
+  margin: 0 0 0.55rem;
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
+.card__details {
+  margin: 0 0 0.7rem;
+  font-size: 0.9rem;
+}
+
+.card__details > summary {
+  cursor: pointer;
+  color: #2a4f93;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+.card__details ul {
+  margin: 0.5rem 0 0 1rem;
+  padding: 0;
+  color: #444c56;
+  line-height: 1.65;
+}
+
+.card__details li { margin-bottom: 0.45rem; }
+
+/* ===== Media grid ===== */
+.card__media {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 0.6rem;
+}
+
+.card__media--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.card__media--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card__media--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.card__media img,
+.card__media video {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ===== Link pills ===== */
+.card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.82rem;
+  line-height: 1.2;
+}
+
+.pill--blue   { background: #e8eefc; color: #2a4f93; }
+.pill--green  { background: #e7f5ed; color: #1f6f50; }
+.pill--purple { background: #f4f1ff; color: #5b4b8a; border: 1px solid #e4dcff; }
+.pill--orange { background: #fef3e8; color: #a35b1f; }
+.pill--muted  { background: #f3f5f8; color: #5c6773; }
+
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
+  .page {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .sidebar {
+    position: static;
+  }
+  .sidebar__links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .card__media--3, .card__media--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

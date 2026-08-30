@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>陶思宇 — Projects</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <!-- ===== Sidebar / author profile ===== -->
+    <aside class="sidebar">
+      <img class="sidebar__avatar" src="images/avatar.jpg" alt="陶思宇" />
+      <h1 class="sidebar__name">陶思宇</h1>
+      <p class="sidebar__bio">机器人方向在读硕士生</p>
+      <p class="sidebar__meta">电子科技大学</p>
+      <p class="sidebar__meta">四川 · 成都</p>
+      <ul class="sidebar__links">
+        <li><a href="mailto:taosiyu2024@163.com">Email</a></li>
+        <li><a href="https://github.com/spectator333">GitHub</a></li>
+        <li><a href="#" id="wechat-toggle">WeChat</a></li>
+      </ul>
+      <div class="sidebar__wechat" id="wechat-qr">
+        <img src="images/wechat.jpg" alt="WeChat QR" />
+      </div>
+    </aside>
+
+    <!-- ===== Projects ===== -->
+    <main class="content">
+      <h2 class="section-title">Projects</h2>
+      <div class="cards">
+        <!-- ========== 项目 6（最上） ========== -->
+        <article class="card">
+          <span class="tag">VLA + RL</span>
+          <h3 class="card__title">Precision Insertion via π0.5 + RL Token for Electrical-Cabinet Inspection</h3>
+          <ul class="card__points">
+            <li>Froze the π0.5 foundation policy and extracted an RL Token from its multimodal hidden states to drive a lightweight Actor-Critic for local action refinement (Piper, Jetson AGX Orin)</li>
+            <li>Focused RL on the fine alignment + insertion phase via critical-phase reset, collecting only ~60 key-segment trajectories</li>
+            <li>Added targeted human intervention at failure onset to build balanced success/failure and corrective samples for the critic</li>
+            <li>Sample-efficient off-policy RL raised the key-insertion success rate from 7.5% to 92.5% over 40 real-robot trials</li>
+          </ul>
+          <div class="card__media card__media--2">
+            <video src="files/p6/v1.mp4" controls muted playsinline preload="metadata"></video>
+            <video src="files/p6/v2.mp4" controls muted playsinline preload="metadata"></video>
+          </div>
+        </article>
+
+        <!-- ========== 项目 5 ========== -->
+        <article class="card">
+          <span class="tag">VLA · Async Control · Real-World Deployment</span>
+          <h3 class="card__title">Jitter Diagnosis & Asynchronous Continuous Control for π0.5 VLA</h3>
+          <ul class="card__points">
+            <li>Built a six-dimensional real-robot jitter diagnosis pipeline (phenomenon → data → policy output → low-level control → chunk timing → vision/comms) to localize intra-chunk jitter vs. inter-chunk discontinuity</li>
+            <li>Benchmarked RTC / T-RTC / VLASH under varying delay on LeRobot / LIBERO; VLASH's future-state awareness stayed most stable as delay grew</li>
+            <li>Trained VLASH async with temporal delay augmentation and launched inference early (~step 42) to hide latency within a ~267ms overlap window</li>
+            <li>Raised task success from 5% to 65%, cut mean control period 5123.4ms → 224.5ms and task time 51s → 18s (~2.8× speedup) on Piper + Jetson AGX Orin</li>
+          </ul>
+          <div class="card__media card__media--2">
+            <img src="files/p5/img1.png" alt="Jitter diagnosis figure 1" />
+            <img src="files/p5/img2.png" alt="Jitter diagnosis figure 2" />
+            <video src="files/p5/v1.mp4" controls muted playsinline preload="metadata"></video>
+            <video src="files/p5/v2.mp4" controls muted playsinline preload="metadata"></video>
+          </div>
+        </article>
+
+        <!-- ========== 项目 4 ========== -->
+        <article class="card">
+          <span class="tag">VLA · PEFT · Algorithm Research</span>
+          <h3 class="card__title">π0.5 VLA Full/LoRA Fine-tuning, Adapter Capacity & Flow Sampling Study</h3>
+          <ul class="card__points">
+            <li>Reproduced the LIBERO benchmark with a JAX Policy Server + client loop (~2000 rollouts); dual-H200 FSDP full SFT reached 96.55% average success</li>
+            <li>Established a low-cost LoRA baseline (~1/28–1/30 the GPU-hours of full SFT); a 30K-step LoRA main config reached 97.0% average success</li>
+            <li>LoRA rank ablation (PaliGemma 4/8/16/32/64): Long-Horizon was most sensitive to adapter capacity, +23.2 pct (30.0% → 53.2%)</li>
+            <li>Flow-matching step ablation showed success saturates by ~5 steps (1/3/5/10-step: 95.9/96.6/97.0/96.9%)</li>
+            <li>Manual failure analysis of 16 episodes: grasping precision dominated (8/16); remaining bottleneck is local manipulation accuracy, not sequential failure</li>
+          </ul>
+          <div class="card__media card__media--3">
+            <img src="files/p4/img1.png" alt="π0.5 PEFT study figure 1" />
+            <img src="files/p4/img2.png" alt="π0.5 PEFT study figure 2" />
+            <img src="files/p4/img3.png" alt="π0.5 PEFT study figure 3" />
+          </div>
+        </article>
+
+        <!-- ========== 项目 3 ========== -->
+        <article class="card">
+          <span class="tag">Wheel-Legged Locomotion · Sim2Real</span>
+          <h3 class="card__title">DreamWaQ Wheel-Legged Locomotion & Real-Robot Deployment</h3>
+          <ul class="card__points">
+            <li>Extended the original foot-only 12-DoF DreamWaQ framework to 16-DoF wheel-legged control with a hybrid action space (leg position PD + wheel velocity)</li>
+            <li>Reworked the VAE/PPO optimization and deterministic inference, and built a high-platform terrain curriculum for the Sim2Real pipeline</li>
+            <li>Deployed on a self-built wheel-legged robot dog, clearing a 90cm platform, while debugging URDF, actuator and observation-dropout issues</li>
+          </ul>
+          <div class="card__media card__media--2">
+            <video src="files/p3/v1.mp4" controls muted playsinline preload="metadata"></video>
+            <video src="files/p3/v2.mp4" controls muted playsinline preload="metadata"></video>
+            <video src="files/p3/v3.mp4" controls muted playsinline preload="metadata"></video>
+            <video src="files/p3/v4.mp4" controls muted playsinline preload="metadata"></video>
+          </div>
+        </article>
+
+        <!-- ========== 项目 2 ========== -->
+        <article class="card">
+          <span class="tag">High-Dynamic Motion · DeepMimic</span>
+          <h3 class="card__title">DeepMimic High-Dynamic Skills — Large Quadruped Backflip</h3>
+          <ul class="card__points">
+            <li>Targeted near-hardware-limit motions such as the large-quadruped backflip using trajectory optimization + DeepMimic reference tracking + curriculum + domain randomization</li>
+            <li>Built a three-tier reference-trajectory verification scheme: kinematic replay / open-loop PD / physical audit</li>
+            <li>Achieved a full airborne flip in IsaacGym and validated it via MuJoCo Sim2Sim</li>
+          </ul>
+          <div class="card__media card__media--2">
+            <video src="files/p2/v1.mp4" controls muted playsinline preload="metadata"></video>
+            <video src="files/p2/v2.mp4" controls muted playsinline preload="metadata"></video>
+          </div>
+        </article>
+
+        <!-- ========== 项目 1（最下） ========== -->
+        <article class="card">
+          <span class="tag">Quadruped Locomotion · AMP</span>
+          <h3 class="card__title">AMP Natural Gaits for Large Quadrupeds</h3>
+          <ul class="card__points">
+            <li>Trained natural trot / pronk gaits with PPO + AMP on a ~60kg large quadruped</li>
+            <li>Diagnosed discriminator mode collapse and thigh swing degradation from heavy legs across reference data, reward balance, discriminator and mass distribution</li>
+            <li>Combined AMP style prior with explicit gait constraints to improve gait quality, validated via MuJoCo Sim2Sim</li>
+          </ul>
+          <div class="card__media card__media--2">
+            <video src="files/p1/v1.mp4" controls muted playsinline preload="metadata"></video>
+            <video src="files/p1/v2.mp4" controls muted playsinline preload="metadata"></video>
+            <video src="files/p1/v3.mp4" controls muted playsinline preload="metadata"></video>
+            <video src="files/p1/v4.mp4" controls muted playsinline preload="metadata"></video>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Toggle WeChat QR visibility
+    document.getElementById('wechat-toggle').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('wechat-qr').classList.toggle('is-open');
+    });
+  </script>
+</body>
+</html>
