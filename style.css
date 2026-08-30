@@ -93,6 +93,52 @@ a { color: inherit; }
   border-bottom: 1px solid #eaeef2;
 }
 
+/* ===== About ===== */
+.about {
+  margin-bottom: 2rem;
+}
+
+.about p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #333b44;
+}
+
+/* ===== Education ===== */
+.education {
+  margin-bottom: 2rem;
+}
+
+.edu {
+  display: grid;
+  gap: 1rem;
+}
+
+.edu__item {
+  border-left: 3px solid #dde3ea;
+  padding-left: 0.9rem;
+}
+
+.edu__school {
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.edu__degree {
+  font-size: 0.9rem;
+  color: #444c56;
+  margin: 0.15rem 0;
+}
+
+.edu__date {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* section spacing when it's not the first */
+.content > .section-title { margin-top: 0.5rem; }
+
 /* ===== Cards ===== */
 .cards {
   display: grid;
