@@ -57,12 +57,14 @@
         <article class="card">
           <span class="tag" data-en="VLA + RL" data-zh="VLA + 强化学习">VLA + 强化学习</span>
           <h3 class="card__title" data-en="Precision Insertion via π0.5 + RL Token for Electrical-Cabinet Inspection" data-zh="面向电柜巡检的 π0.5 + RL Token 精密插入强化学习">面向电柜巡检的 π0.5 + RL Token 精密插入强化学习</h3>
-          <ul class="card__points">
-            <li data-en="Froze the π0.5 foundation policy and extracted an RL Token from its multimodal hidden states to drive a lightweight Actor-Critic for local action refinement (Piper, Jetson AGX Orin)" data-zh="冻结 π0.5 基础策略，从其多模态隐藏状态提取 RL Token，驱动轻量 Actor-Critic 进行局部动作精修（Piper、Jetson AGX Orin）">冻结 π0.5 基础策略，从其多模态隐藏状态提取 RL Token，驱动轻量 Actor-Critic 进行局部动作精修（Piper、Jetson AGX Orin）</li>
-            <li data-en="Focused RL on the fine alignment + insertion phase via critical-phase reset, collecting only ~60 key-segment trajectories" data-zh="通过关键阶段重置将 RL 聚焦于精细对准 + 插入阶段，仅采集约 60 条关键片段轨迹">通过关键阶段重置将 RL 聚焦于精细对准 + 插入阶段，仅采集约 60 条关键片段轨迹</li>
-            <li data-en="Added targeted human intervention at failure onset to build balanced success/failure and corrective samples for the critic" data-zh="在失败发生前引入定向人工介入，为 critic 构建更均衡的成功/失败与纠错样本">在失败发生前引入定向人工介入，为 critic 构建更均衡的成功/失败与纠错样本</li>
-            <li data-en="Sample-efficient off-policy RL raised the key-insertion success rate from 7.5% to 92.5% over 40 real-robot trials" data-zh="样本高效的 off-policy RL 在 40 次真机测试中将插钥匙成功率由 7.5% 提升至 92.5%">样本高效的 off-policy RL 在 40 次真机测试中将插钥匙成功率由 7.5% 提升至 92.5%</li>
-          </ul>
+          <dl class="card__pmr">
+            <dt data-en="Problem" data-zh="问题">Problem</dt>
+            <dd data-en="Base π0.5 can already approach and coarsely align, but its success rate in the final-millimeter Fine Alignment / Insertion stage of key insertion is only 7.5%." data-zh="Base π0.5 已能完成接近与粗对准，但在插钥匙最后几毫米的 Fine Alignment / Insertion 阶段成功率仅 7.5%。">Base π0.5 can already approach and coarsely align, but its success rate in the final-millimeter Fine Alignment / Insertion stage of key insertion is only 7.5%.</dd>
+            <dt data-en="Method" data-zh="方法">Method</dt>
+            <dd data-en="Froze the π0.5 main policy and introduced an RL Token + lightweight Actor-Critic to locally refine the VLA reference action, combining Critical-phase Training, Human Intervention and Off-policy Replay to improve real-robot data efficiency." data-zh="冻结 π0.5 主策略，引入 RL Token + Lightweight Actor-Critic 对 VLA Reference Action 做局部修正，并结合 Critical-phase Training、Human Intervention 与 Off-policy Replay 提升真机数据利用效率。">Froze the π0.5 main policy and introduced an RL Token + lightweight Actor-Critic to locally refine the VLA reference action, combining Critical-phase Training, Human Intervention and Off-policy Replay to improve real-robot data efficiency.</dd>
+            <dt data-en="Result" data-zh="结果">Result</dt>
+            <dd data-en="Completed real-robot RL with only ~60 key-stage trajectories, raising success from 7.5% to 92.5% over 40 Piper trials (3/40 → 37/40)." data-zh="仅使用约 60 条关键阶段轨迹完成真机强化学习，在 40 次 Piper 测试中将成功率由 7.5% 提升至 92.5%（3/40 → 37/40）。">Completed real-robot RL with only ~60 key-stage trajectories, raising success from 7.5% to 92.5% over 40 Piper trials (3/40 → 37/40).</dd>
+          </dl>
           <div class="card__media card__media--2">
             <figure class="media-fig">
               <video src="files/p6/v1.mp4" controls muted playsinline preload="metadata"></video>
@@ -79,12 +81,14 @@
         <article class="card">
           <span class="tag" data-en="VLA · Async Control · Real-World Deployment" data-zh="VLA · 异步控制 · 真机部署">VLA · 异步控制 · 真机部署</span>
           <h3 class="card__title" data-en="Jitter Diagnosis &amp; Asynchronous Continuous Control for π0.5 VLA" data-zh="π0.5 VLA 真机抖动诊断与异步连续控制优化">π0.5 VLA 真机抖动诊断与异步连续控制优化</h3>
-          <ul class="card__points">
-            <li data-en="Built a six-dimensional real-robot jitter diagnosis pipeline (phenomenon → data → policy output → low-level control → chunk timing → vision/comms) to localize intra-chunk jitter vs. inter-chunk discontinuity" data-zh="构建六维真机抖动诊断流程（现象 → 数据 → 策略输出 → 底层控制 → chunk 时序 → 视觉/通信），区分 chunk 内抖动与 chunk 间不连续">构建六维真机抖动诊断流程（现象 → 数据 → 策略输出 → 底层控制 → chunk 时序 → 视觉/通信），区分 chunk 内抖动与 chunk 间不连续</li>
-            <li data-en="Benchmarked RTC / T-RTC / VLASH under varying delay on LeRobot / LIBERO; VLASH's future-state awareness stayed most stable as delay grew" data-zh="在 LeRobot / LIBERO 上对 RTC / T-RTC / VLASH 做不同延迟对比；延迟增大时 VLASH 的未来状态感知最稳定">在 LeRobot / LIBERO 上对 RTC / T-RTC / VLASH 做不同延迟对比；延迟增大时 VLASH 的未来状态感知最稳定</li>
-            <li data-en="Trained VLASH async with temporal delay augmentation and launched inference early (~step 42) to hide latency within a ~267ms overlap window" data-zh="以时序延迟增强异步训练 VLASH，并提前（约 step 42）启动推理，在约 267ms 重叠窗口内隐藏延迟">以时序延迟增强异步训练 VLASH，并提前（约 step 42）启动推理，在约 267ms 重叠窗口内隐藏延迟</li>
-            <li data-en="Raised task success from 5% to 65%, cut mean control period 5123.4ms → 224.5ms and task time 51s → 18s (~2.8× speedup) on Piper + Jetson AGX Orin" data-zh="在 Piper + Jetson AGX Orin 上将任务成功率由 5% 提升至 65%，平均控制周期由 5123.4ms 降至 224.5ms，任务时间由 51s 缩短至 18s（约 2.8× 加速）">在 Piper + Jetson AGX Orin 上将任务成功率由 5% 提升至 65%，平均控制周期由 5123.4ms 降至 224.5ms，任务时间由 51s 缩短至 18s（约 2.8× 加速）</li>
-          </ul>
+          <dl class="card__pmr">
+            <dt data-en="Problem" data-zh="问题">Problem</dt>
+            <dd data-en="π0.5 suffers from high inference latency in the Jetson AGX Orin + Piper real-robot loop, with pauses, pull-backs and jerk at Action Chunk switches." data-zh="π0.5 在 Jetson AGX Orin + Piper 真机闭环中存在高推理延迟，Action Chunk 切换时出现停顿、回拉与 Jerk。">π0.5 suffers from high inference latency in the Jetson AGX Orin + Piper real-robot loop, with pauses, pull-backs and jerk at Action Chunk switches.</dd>
+            <dt data-en="Method" data-zh="方法">Method</dt>
+            <dd data-en="Localized the main issue as Inter-chunk Discontinuity via Action Jerk × Chunk Boundary alignment, systematically compared RTC / T-RTC / VLASH, and adopted Future-State-Aware Async + Temporal Delay Augmentation for async training and temporal scheduling." data-zh="通过 Action Jerk × Chunk Boundary 对齐定位主要问题为 Inter-chunk Discontinuity，并系统对比 RTC / T-RTC / VLASH；最终采用 Future-State-Aware Async + Temporal Delay Augmentation 完成异步训练与时序调度。">Localized the main issue as Inter-chunk Discontinuity via Action Jerk × Chunk Boundary alignment, systematically compared RTC / T-RTC / VLASH, and adopted Future-State-Aware Async + Temporal Delay Augmentation for async training and temporal scheduling.</dd>
+            <dt data-en="Result" data-zh="结果">Result</dt>
+            <dd data-en="Task SR rose from 15% to 75%, Chunk Refresh Latency dropped 5123.4ms → 224.5ms, and task time shortened 51s → 18s (~2.8×)." data-zh="Task SR 由 15% 提升至 75%，Chunk Refresh Latency 由 5123.4 ms 降至 224.5 ms，任务时间由 51 s 缩短至 18 s（约 2.8×）。">Task SR rose from 15% to 75%, Chunk Refresh Latency dropped 5123.4ms → 224.5ms, and task time shortened 51s → 18s (~2.8×).</dd>
+          </dl>
           <div class="card__media card__media--2">
             <img src="files/p5/img1.png" alt="Jitter diagnosis figure 1" />
             <img src="files/p5/img2.png" alt="Jitter diagnosis figure 2" />
@@ -103,13 +107,14 @@
         <article class="card">
           <span class="tag" data-en="VLA · PEFT · Algorithm Research" data-zh="VLA · 参数高效微调 · 算法研究">VLA · 参数高效微调 · 算法研究</span>
           <h3 class="card__title" data-en="π0.5 VLA Full/LoRA Fine-tuning, Adapter Capacity &amp; Flow Sampling Study" data-zh="π0.5 VLA 全参/LoRA 微调、Adapter Capacity 与 Flow Sampling 研究">π0.5 VLA 全参/LoRA 微调、Adapter Capacity 与 Flow Sampling 研究</h3>
-          <ul class="card__points">
-            <li data-en="Reproduced the LIBERO benchmark with a JAX Policy Server + client loop (~2000 rollouts); dual-H200 FSDP full SFT reached 96.55% average success" data-zh="用 JAX Policy Server + 客户端闭环复现 LIBERO 基准（约 2000 次 rollout）；双 H200 FSDP 全参 SFT 平均成功率 96.55%">用 JAX Policy Server + 客户端闭环复现 LIBERO 基准（约 2000 次 rollout）；双 H200 FSDP 全参 SFT 平均成功率 96.55%</li>
-            <li data-en="Established a low-cost LoRA baseline (~1/28–1/30 the GPU-hours of full SFT); a 30K-step LoRA main config reached 97.0% average success" data-zh="建立低成本 LoRA 基线（GPU-hour 约为全参 SFT 的 1/28–1/30）；30K-step LoRA 主配置平均成功率达 97.0%">建立低成本 LoRA 基线（GPU-hour 约为全参 SFT 的 1/28–1/30）；30K-step LoRA 主配置平均成功率达 97.0%</li>
-            <li data-en="LoRA rank ablation (PaliGemma 4/8/16/32/64): Long-Horizon was most sensitive to adapter capacity, +23.2 pct (30.0% → 53.2%)" data-zh="LoRA rank 消融（PaliGemma 4/8/16/32/64）：Long-Horizon 对 adapter 容量最敏感，+23.2 pct（30.0% → 53.2%）">LoRA rank 消融（PaliGemma 4/8/16/32/64）：Long-Horizon 对 adapter 容量最敏感，+23.2 pct（30.0% → 53.2%）</li>
-            <li data-en="Flow-matching step ablation showed success saturates by ~5 steps (1/3/5/10-step: 95.9/96.6/97.0/96.9%)" data-zh="Flow-matching 步数消融显示约 5 步后成功率饱和（1/3/5/10 步：95.9/96.6/97.0/96.9%）">Flow-matching 步数消融显示约 5 步后成功率饱和（1/3/5/10 步：95.9/96.6/97.0/96.9%）</li>
-            <li data-en="Manual failure analysis of 16 episodes: grasping precision dominated (8/16); remaining bottleneck is local manipulation accuracy, not sequential failure" data-zh="16 个失败 episode 的人工归因：抓取精度占主导（8/16）；剩余瓶颈在于局部操作精度而非序列失败">16 个失败 episode 的人工归因：抓取精度占主导（8/16）；剩余瓶颈在于局部操作精度而非序列失败</li>
-          </ul>
+          <dl class="card__pmr">
+            <dt data-en="Baseline" data-zh="基线">Baseline</dt>
+            <dd data-en="Built a JAX Policy Server + LIBERO Client evaluation loop on OpenPI over ~2000 rollouts, establishing a unified baseline at 96.25% with the official checkpoint; dual-H200 JAX FSDP completed 30K-step Full SFT at 96.55% average success." data-zh="基于 OpenPI 搭建 JAX Policy Server + LIBERO Client 闭环评测链路，完成约 2000 次 Rollout，以官方 checkpoint 实测 96.25% 建立统一评测基线；采用双 H200 JAX FSDP 完成 30K-step Full SFT，平均成功率 96.55%。">Built a JAX Policy Server + LIBERO Client evaluation loop on OpenPI over ~2000 rollouts, establishing a unified baseline at 96.25% with the official checkpoint; dual-H200 JAX FSDP completed 30K-step Full SFT at 96.55% average success.</dd>
+            <dt data-en="PEFT" data-zh="参数高效微调">PEFT</dt>
+            <dd data-en="10K-step LoRA cut training cost to ~1/28–1/30 the GPU-hours of Full SFT; further module-level Rank Ablation and 30K LoRA reached 97.0% average success on LIBERO." data-zh="10K-step LoRA 将训练成本降至 Full SFT 的约 1/28–1/30 GPU-hour；进一步完成模块级 Rank Ablation 与 30K LoRA，最终 LIBERO 平均成功率达到 97.0%。">10K-step LoRA cut training cost to ~1/28–1/30 the GPU-hours of Full SFT; further module-level Rank Ablation and 30K LoRA reached 97.0% average success on LIBERO.</dd>
+            <dt data-en="Analysis" data-zh="分析">Analysis</dt>
+            <dd data-en="Long-Horizon is most sensitive to Adapter Capacity, with up to +23.2 pct spread across Rank configs; Flow Sampling gains saturate after ~5 steps, and 50% of 16 failure episodes were Grasping Precision." data-zh="Long-Horizon 对 Adapter Capacity 最敏感，Rank 配置间最高跨度 +23.2 pct；Flow Sampling 在约 5 Steps 后收益趋于饱和，16 个失败 Episode 中 50% 为 Grasping Precision。">Long-Horizon is most sensitive to Adapter Capacity, with up to +23.2 pct spread across Rank configs; Flow Sampling gains saturate after ~5 steps, and 50% of 16 failure episodes were Grasping Precision.</dd>
+          </dl>
           <div class="card__media card__media--2">
             <img src="files/p4/img2.png" alt="π0.5 PEFT study figure 1" />
             <img src="files/p4/img3.png" alt="π0.5 PEFT study figure 2" />
